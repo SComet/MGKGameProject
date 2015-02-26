@@ -4,27 +4,10 @@ ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Door Glass:1
-    100004: Door Glass:1 1
-    100006: Door Glass:1 2
-    100008: Solid1_1:1
     400000: //RootNode
-    400002: Door Glass:1
-    400004: Door Glass:1 1
-    400006: Door Glass:1 2
-    400008: Solid1_1:1
-    2300000: Door Glass:1 1
-    2300002: Door Glass:1 2
-    2300004: Solid1_1:1
-    2300006: //RootNode
-    3300000: Door Glass:1 1
-    3300002: Door Glass:1 2
-    3300004: Solid1_1:1
-    3300006: //RootNode
-    4300000: Solid1_1:1
-    4300002: Door Glass:1
-    4300004: Door Glass:1
-    4300006: Door
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Correct_Door
     9500000: //RootNode
   materials:
     importMaterials: 1
