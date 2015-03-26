@@ -86,8 +86,9 @@ ModelImporter:
     400078: //RootNode
     400080: vincent_Casual_Male_Lod_1
     4300000: vincent_Casual_Male_Lod_1
-    7400000: Walk
+    7400000: Walk_Vincent
     9500000: //RootNode
+    11100000: //RootNode
     13700000: vincent_Casual_Male_Lod_1
   materials:
     importMaterials: 1
@@ -106,7 +107,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
+      name: Walk_Vincent
       takeName: Take 001
       firstFrame: 0
       lastFrame: 40
@@ -248,6 +249,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   additionalBone: 0
   userData: 
