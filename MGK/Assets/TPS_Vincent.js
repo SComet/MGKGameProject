@@ -1,5 +1,3 @@
-
-// Require a character controller to be attached to the same game object
 @script RequireComponent(CharacterController)
 
 public var idleAnimation : AnimationClip;
@@ -357,7 +355,7 @@ function Update() {
 	// ANIMATION sector
 	
 	// Set rotation to the move direction
-	
+	/* Removed. Leave this to mouse look instead.
 	if (IsGrounded())
 	{
 		
@@ -373,7 +371,7 @@ function Update() {
 			transform.rotation = Quaternion.LookRotation(xzMove);
 		}
 	}	
-	
+	*/
 	// We are in jump mode but just became grounded
 	if (IsGrounded())
 	{
