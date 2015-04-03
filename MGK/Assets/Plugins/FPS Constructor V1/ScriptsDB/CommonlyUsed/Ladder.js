@@ -77,7 +77,7 @@ function Update () {
 		soundAmt -= Mathf.Abs(lastVal- val);
 		if(soundAmt <= 0){
 			soundAmt = soundInterval;
-			audio.Play();
+			GetComponent.<AudioSource>().Play();
 		}		
 		player.position.y = Mathf.Lerp(transform.position.y, exitPos.position.y, val);
 		

@@ -8,8 +8,8 @@ function OnTriggerStay (other : Collider) {
 	sendArray[0] = dps*Time.deltaTime;
 	sendArray[1] = true;		
 	other.SendMessageUpwards("ApplyDamage", sendArray, SendMessageOptions.DontRequireReceiver);
-	if(other.rigidbody)
-	other.rigidbody.AddExplosionForce(power, transform.position, forceRadius, vFactor);
+	if(other.GetComponent.<Rigidbody>())
+	other.GetComponent.<Rigidbody>().AddExplosionForce(power, transform.position, forceRadius, vFactor);
 }
 
 function Finish(){

@@ -417,8 +417,8 @@ private function UpdateFunction () {
 		if(diving){
 			diving = false;
 			SetVelocity(transform.forward*6);
-			audio.volume = proneLandSoundVolume;
-			audio.PlayOneShot(proneLandSound);
+			GetComponent.<AudioSource>().volume = proneLandSoundVolume;
+			GetComponent.<AudioSource>().PlayOneShot(proneLandSound);
 			camSpeed = lastCamSpeed;
 			//Prone();
 		}
@@ -435,8 +435,8 @@ private function UpdateFunction () {
 		if(fallVal > 0 && PlayerWeapons.playerActive && !paused)
 			BroadcastMessage("ApplyFallDamage", fallVal);
 		//Debug.Log(fallVal);
-		audio.volume = landSoundVolume;
-		audio.PlayOneShot(landSound);
+		GetComponent.<AudioSource>().volume = landSoundVolume;
+		GetComponent.<AudioSource>().PlayOneShot(landSound);
 
 	}
 	
@@ -559,8 +559,8 @@ function Update () {
 			GunLook.jostleAmt = Vector3(-.075,-.12,0);
 			CamSway.jostleAmt = Vector3(-.01,-.03,0);
 			hitProne = true;
-			audio.volume = proneLandSoundVolume;
-			audio.PlayOneShot(proneLandSound);
+			GetComponent.<AudioSource>().volume = proneLandSoundVolume;
+			GetComponent.<AudioSource>().PlayOneShot(proneLandSound);
 		}
 	} else {
 		if(weaponCamera.transform.localPosition.y < standardCamHeight){
@@ -719,8 +719,8 @@ private function ApplyGravityAndJumping (velocity : Vector3) {
 			}
 			
 			SendMessage("OnJump", SendMessageOptions.DontRequireReceiver);
-			audio.volume = jumpSoundVolume;
-			audio.PlayOneShot(jumpSound);
+			GetComponent.<AudioSource>().volume = jumpSoundVolume;
+			GetComponent.<AudioSource>().PlayOneShot(jumpSound);
 			BroadcastMessage("Airborne", SendMessageOptions.DontRequireReceiver);
 
 		}

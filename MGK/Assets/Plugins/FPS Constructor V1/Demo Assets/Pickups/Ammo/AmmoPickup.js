@@ -21,8 +21,8 @@ function Interact () {
 		}
 		if(wp.clips < wp.maxClips){ //if ammo isn't already full
 			wp.clips = Mathf.Clamp(wp.clips+amount, wp.clips, wp.maxClips); //add up to max
-			if(audio)
-				audio.Play(); //play sound
+			if(GetComponent.<AudioSource>())
+				GetComponent.<AudioSource>().Play(); //play sound
 			removed = true; //decrement limit
 		}
 		wp.ApplyToSharedAmmo();
@@ -31,14 +31,14 @@ function Interact () {
 			wp = wp.secondaryWeapon;
 		if(wp.clips < wp.maxClips){ //if ammo isn't already full
 			wp.clips = Mathf.Clamp(wp.clips+amount, wp.clips, wp.maxClips); //add up to max
-			if(audio){
+			if(GetComponent.<AudioSource>()){
 				var audioObj : GameObject = new GameObject("PickupSound");
 				audioObj.transform.position = transform.position;
-				audioObj.AddComponent(TimedObjectDestructorDB).timeOut = audio.clip.length + .1;;
+				audioObj.AddComponent(TimedObjectDestructorDB).timeOut = GetComponent.<AudioSource>().clip.length + .1;;
 				var aO : AudioSource = audioObj.AddComponent(AudioSource); //play sound
-				aO.clip = audio.clip;
-				aO.volume = audio.volume;
-				aO.pitch = audio.pitch;
+				aO.clip = GetComponent.<AudioSource>().clip;
+				aO.volume = GetComponent.<AudioSource>().volume;
+				aO.pitch = GetComponent.<AudioSource>().pitch;
 				aO.Play();
 				aO.loop = false;
 				aO.rolloffMode = AudioRolloffMode.Linear;

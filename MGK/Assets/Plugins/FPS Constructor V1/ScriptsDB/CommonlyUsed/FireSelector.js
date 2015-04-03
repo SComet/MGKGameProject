@@ -13,7 +13,7 @@ function Start () {
 function Cycle () {
 	if (!gscript.gunActive || AimMode.sprintingPublic || LockCursor.unPaused || gscript.reloading)
 		return;
-	audio.PlayOneShot(sound, soundVolume);
+	GetComponent.<AudioSource>().PlayOneShot(sound, soundVolume);
 	if(anim != ""){
 		BroadcastMessage("PlayAnim", anim);
 	}

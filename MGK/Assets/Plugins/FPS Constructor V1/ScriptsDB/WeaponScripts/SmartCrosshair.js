@@ -59,16 +59,16 @@ function Awake(){
 function Update(){
 	if(!PlayerWeapons.playerActive){
 		if(cObj)
-			cObj.renderer.enabled = false;
+			cObj.GetComponent.<Renderer>().enabled = false;
 		return;
 	} else if (cObj){
-		cObj.renderer.enabled = true;
+		cObj.GetComponent.<Renderer>().enabled = true;
 	}
 	if(cObj != null){
 		if(crosshair && ownTexture){
-			cObj.renderer.enabled = true;
+			cObj.GetComponent.<Renderer>().enabled = true;
 		} else {
-			cObj.renderer.enabled = false;
+			cObj.GetComponent.<Renderer>().enabled = false;
 		}
 	}
 	var temp : float;
@@ -79,7 +79,7 @@ function Update(){
 	} else {
 		temp  = GunScript.crosshairSpread;
 		temp = temp/180;
-		temp = temp*GunScript.weaponCam.camera.fieldOfView;
+		temp = temp*GunScript.weaponCam.GetComponent.<Camera>().fieldOfView;
 		temp = temp/Screen.height;
 		temp = temp/sclRef;
 		temp2 = cSize*temp;
@@ -167,13 +167,13 @@ function Sprinting(){
 
 function SetCrosshair(){
 	if(cObj != null){
-		cObj.renderer.enabled = false;
+		cObj.GetComponent.<Renderer>().enabled = false;
 	}
 }
 
 function DefaultCrosshair(){
 	if(cObj != null){
-		cObj.renderer.enabled = false;
+		cObj.GetComponent.<Renderer>().enabled = false;
 	}
 	ownTexture = useTexture;
 	if(crosshairObj != null){
@@ -190,8 +190,8 @@ function DefaultCrosshair(){
 function HitEffect(){
 	hitEffectOn = true;
 	hitEffectTime = 1;
-	if(audio && !audio.isPlaying){
-		audio.clip = hitSound;
-		audio.Play();
+	if(GetComponent.<AudioSource>() && !GetComponent.<AudioSource>().isPlaying){
+		GetComponent.<AudioSource>().clip = hitSound;
+		GetComponent.<AudioSource>().Play();
 	}
 }

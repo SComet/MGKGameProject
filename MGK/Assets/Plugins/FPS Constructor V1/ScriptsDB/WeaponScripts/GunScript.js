@@ -572,7 +572,7 @@ function LateUpdate(){
 			idleTime = 0;
 		}
 		shotSpread = Mathf.Clamp (shotSpread, 0 , maxSpread);
-		crosshairSpread = actualSpread*180/weaponCam.camera.fieldOfView*Screen.height;
+		crosshairSpread = actualSpread*180/weaponCam.GetComponent.<Camera>().fieldOfView*Screen.height;
 	} else {
 		return;
 	}
@@ -588,15 +588,15 @@ function LateUpdate(){
 	}
 	
 	if(chargeLevel > 0 && chargeWeapon){
-		if(audio.clip != chargeLoop || !audio.isPlaying){
-			audio.clip = chargeLoop;
-			audio.loop = true;
-			audio.Play();
+		if(GetComponent.<AudioSource>().clip != chargeLoop || !GetComponent.<AudioSource>().isPlaying){
+			GetComponent.<AudioSource>().clip = chargeLoop;
+			GetComponent.<AudioSource>().loop = true;
+			GetComponent.<AudioSource>().Play();
 		}
 	} else {
-		if(audio.clip == chargeLoop)
+		if(GetComponent.<AudioSource>().clip == chargeLoop)
 		{
-			audio.Stop();
+			GetComponent.<AudioSource>().Stop();
 		}
 	}
 	
@@ -604,8 +604,8 @@ function LateUpdate(){
 	if (m_LastFrameShot == Time.frameCount) {
 				} else {			
 		// Play sound
-		if (audio){
-			audio.loop = false;
+		if (GetComponent.<AudioSource>()){
+			GetComponent.<AudioSource>().loop = false;
 		}
 	}
 }
@@ -648,9 +648,9 @@ function Fire(){
 	idleTime = 0;
 	if (!gunActive || aim1.sprinting || inDelay || LockCursor.unPaused){
 		if(gunTypes.spray && sprayOn){
-			if(audio){
-				if(audio.clip == loopSound){
-					audio.Stop();
+			if(GetComponent.<AudioSource>()){
+				if(GetComponent.<AudioSource>().clip == loopSound){
+					GetComponent.<AudioSource>().Stop();
 				}
 			sprayOn = false;
 			sprayScript.ToggleActive(false);
@@ -664,8 +664,8 @@ function Fire(){
 		nextFireTime = Time.time + fireRate;
 		inDelay = true;
 		hitBox = true;
-		audio.clip = fireSound;
-		audio.Play();
+		GetComponent.<AudioSource>().clip = fireSound;
+		GetComponent.<AudioSource>().Play();
 		yield new WaitForSeconds(delay);
 		inDelay = false;
 		if(reloadTime > 0)
@@ -696,10 +696,10 @@ function Fire(){
 			}
 			if(!reloading){
 				PlayerWeapons.autoFire = false;
-				audio.pitch = emptyPitch;
-				audio.volume = emptyVolume;
-				audio.clip = emptySound;
-				audio.Play();
+				GetComponent.<AudioSource>().pitch = emptyPitch;
+				GetComponent.<AudioSource>().volume = emptyVolume;
+				GetComponent.<AudioSource>().clip = emptySound;
+				GetComponent.<AudioSource>().Play();
 			}
 		}
 		if(gunType == gunTypes.spray){
@@ -868,8 +868,8 @@ function FireOneProjectile(){
 	instantiatedProjectile = Instantiate (projectile, launchPos.position, convert);
 	instantiatedProjectile.velocity = instantiatedProjectile.transform.TransformDirection(Vector3 (0, 0, initialSpeed));
 	instantiatedProjectile.transform.rotation = launchPos.transform.rotation;
-	Physics.IgnoreCollision(instantiatedProjectile.collider, transform.root.collider);
-	Physics.IgnoreCollision(instantiatedProjectile.collider, player.transform.collider);
+	Physics.IgnoreCollision(instantiatedProjectile.GetComponent.<Collider>(), transform.root.GetComponent.<Collider>());
+	Physics.IgnoreCollision(instantiatedProjectile.GetComponent.<Collider>(), player.transform.GetComponent.<Collider>());
 	instantiatedProjectile.BroadcastMessage("ChargeLevel", chargeLevel, SendMessageOptions.DontRequireReceiver);
 	Kickback();
 }
@@ -883,7 +883,7 @@ function FireOneBullet(){
   	layerMask = ~layerMask;*/
   	var hits : RaycastHit[];
 	//var direction = SprayDirection();
-	var ray : Ray = mainCam.camera.ScreenPointToRay(Vector2(Screen.width/2, Screen.height/2));
+	var ray : Ray = mainCam.GetComponent.<Camera>().ScreenPointToRay(Vector2(Screen.width/2, Screen.height/2));
 	ray.direction = SprayDirection(ray.direction);
   	hits = Physics.RaycastAll (ray, range, ~PlayerWeapons.PW.RaycastsIgnore.value);
   	
@@ -975,15 +975,15 @@ function FireSpray(){
 	if(!sprayOn){
 		sprayOn = true;
 		sprayScript.ToggleActive(true);
-		audio.clip = fireSound;
-		audio.Play();
+		GetComponent.<AudioSource>().clip = fireSound;
+		GetComponent.<AudioSource>().Play();
 	}
-	if(audio.clip == loopSound && audio.isPlaying && AimMode.sprintingPublic){
-		audio.Stop();
-	}else if(audio && !audio.isPlaying && !AimMode.sprintingPublic){
-		audio.clip = loopSound;
-		audio.loop = true;
-		audio.Play();
+	if(GetComponent.<AudioSource>().clip == loopSound && GetComponent.<AudioSource>().isPlaying && AimMode.sprintingPublic){
+		GetComponent.<AudioSource>().Stop();
+	}else if(GetComponent.<AudioSource>() && !GetComponent.<AudioSource>().isPlaying && !AimMode.sprintingPublic){
+		GetComponent.<AudioSource>().clip = loopSound;
+		GetComponent.<AudioSource>().loop = true;
+		GetComponent.<AudioSource>().Play();
 	}
 	if(tempAmmo <= 0){
 		tempAmmo = 1;
@@ -994,18 +994,18 @@ function FireSpray(){
 }
 
 function ReleaseFire(key : int){
-	if(audio){
-		if(audio.isPlaying && audio.clip == chargeLoop){
-			audio.Stop();
+	if(GetComponent.<AudioSource>()){
+		if(GetComponent.<AudioSource>().isPlaying && GetComponent.<AudioSource>().clip == chargeLoop){
+			GetComponent.<AudioSource>().Stop();
 		}
 	}
 	if(sprayOn){
 		sprayScript.ToggleActive(false);
 		sprayOn = false;
-		if(audio){
-			audio.clip = releaseSound;
-			audio.loop = false;
-			audio.Play();
+		if(GetComponent.<AudioSource>()){
+			GetComponent.<AudioSource>().clip = releaseSound;
+			GetComponent.<AudioSource>().loop = false;
+			GetComponent.<AudioSource>().Play();
 		}
 	}
 	if(chargeWeapon){
@@ -1060,9 +1060,9 @@ function Reload(){
 		aim = true;
 	}
 	if(gunType == gunTypes.spray){
-		if(audio){
-			if(audio.clip == loopSound && audio.isPlaying){
-				audio.Stop();
+		if(GetComponent.<AudioSource>()){
+			if(GetComponent.<AudioSource>().clip == loopSound && GetComponent.<AudioSource>().isPlaying){
+				GetComponent.<AudioSource>().Stop();
 			}
 		}
 	}
@@ -1247,7 +1247,7 @@ function SelectWeapon(){
 		NormalSpeed();
 		
 		if(gos.length > 0)
-			if(gos[0].renderer.enabled == false)
+			if(gos[0].GetComponent.<Renderer>().enabled == false)
 				for( var go : Renderer in gos){
 					go.enabled=true;
 			}
@@ -1259,9 +1259,9 @@ function SelectWeapon(){
 }
 
 function DeselectWeapon(){
-	if(audio){
-		if(audio.clip == loopSound && audio.isPlaying){
-			audio.Stop();
+	if(GetComponent.<AudioSource>()){
+		if(GetComponent.<AudioSource>().clip == loopSound && GetComponent.<AudioSource>().isPlaying){
+			GetComponent.<AudioSource>().Stop();
 		}
 	}
 	chargeLevel = 0;
@@ -1295,9 +1295,9 @@ function DeselectWeapon(){
 	}
 }
 function DeselectInstant(){
-	if(audio){
-		if(audio.clip == loopSound && audio.isPlaying){
-			audio.Stop();
+	if(GetComponent.<AudioSource>()){
+		if(GetComponent.<AudioSource>().clip == loopSound && GetComponent.<AudioSource>().isPlaying){
+			GetComponent.<AudioSource>().Stop();
 		}
 	}
 	chargeLevel = 0;

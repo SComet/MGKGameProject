@@ -41,7 +41,7 @@ function Update () {
 		}
 		
 	} else if (gscript.chargeLevel > 0){
-		audio.Play();
+		GetComponent.<AudioSource>().Play();
 		FindTarget();
 		EmitHit(false);
 		EmitCharge(false);

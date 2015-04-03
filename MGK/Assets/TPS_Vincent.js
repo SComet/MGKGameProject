@@ -37,6 +37,7 @@ var jumpHeight = 0.5;
 
 // The gravity for the character
 var gravity = 20.0;
+
 // The gravity in controlled descent mode
 var speedSmoothing = 10.0;
 var rotateSpeed = 500.0;

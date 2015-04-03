@@ -16,8 +16,8 @@ var menuSpeed : float;
 
 function Death(){
 	Destroy(this.GetComponent(GunChildAnimation));
-	animation.clip = deathAnim;
-	animation.Play();
+	GetComponent.<Animation>().clip = deathAnim;
+	GetComponent.<Animation>().Play();
 	dead = true;
 	menuTime = Time.time + menuDelay;
 }

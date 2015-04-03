@@ -22,8 +22,8 @@ function Start (){
 	explodeTime = Time.time+timeOut;
 	playerThings = GameObject.FindGameObjectsWithTag("Player");
 	for(var i : int = 0; i < playerThings.length; i++){
-		if(playerThings[i].collider != null){
-			Physics.IgnoreCollision(this.collider, playerThings[i].collider);
+		if(playerThings[i].GetComponent.<Collider>() != null){
+			Physics.IgnoreCollision(this.GetComponent.<Collider>(), playerThings[i].GetComponent.<Collider>());
 		}
 	}
 }

@@ -29,7 +29,7 @@ private var cam : Camera;
 function Start (){
 	explodeTime = Time.time+timeOut;
 	initiateTime = Time.time + delay;
-	cam = GameObject.FindWithTag("WeaponCamera").camera;
+	cam = GameObject.FindWithTag("WeaponCamera").GetComponent.<Camera>();
 }
 
 function OnCollisionEnter (collision : Collision){
@@ -73,7 +73,7 @@ function LateUpdate(){
 
 	if(Time.time > initiateTime){
 		if(!soundPlaying){
-			audio.Play();
+			GetComponent.<AudioSource>().Play();
 			soundPlaying = true;
 		}
 		if(t!= null){
@@ -83,10 +83,10 @@ function LateUpdate(){
 		} else {
 			Destroy(lockObj);
 		}
-		rigidbody.velocity = transform.TransformDirection(Vector3.forward)*initiatedSpeed;
+		GetComponent.<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward)*initiatedSpeed;
 		em.emit = true;
 	} else {
-		rigidbody.velocity = transform.TransformDirection(Vector3.forward)*flySpeed;
+		GetComponent.<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward)*flySpeed;
 		em.emit = false;
 	}
    if(Time.time > explodeTime){

@@ -23,9 +23,9 @@ function FireProjectile () {
 	var instantiatedProjectile : Rigidbody;
 	instantiatedProjectile = Instantiate (projectile, pos.position, convert);
 	instantiatedProjectile.velocity = instantiatedProjectile.transform.TransformDirection(Vector3 (0, 0, initialSpeed));
-	Physics.IgnoreCollision(instantiatedProjectile.collider, transform.root.collider);
+	Physics.IgnoreCollision(instantiatedProjectile.GetComponent.<Collider>(), transform.root.GetComponent.<Collider>());
 	emitter.Emit();
-	transform.root.rigidbody.AddRelativeForce(Vector3(0,0,-backForce), ForceMode.Impulse);
+	transform.root.GetComponent.<Rigidbody>().AddRelativeForce(Vector3(0,0,-backForce), ForceMode.Impulse);
 }
 
 function SprayDirection(){

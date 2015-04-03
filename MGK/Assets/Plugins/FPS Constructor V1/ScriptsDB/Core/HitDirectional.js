@@ -15,7 +15,7 @@ function Init (pos : Transform, time : float) {
 	Destroy(gameObject);
 }
 function LateUpdate(){
-	obj.renderer.material.color.a = dirEffectTime;
+	obj.GetComponent.<Renderer>().material.color.a = dirEffectTime;
 	dirEffectTime -= Time.deltaTime;
 	if(hitPos != null)
 		lastHitPos = hitPos.position;

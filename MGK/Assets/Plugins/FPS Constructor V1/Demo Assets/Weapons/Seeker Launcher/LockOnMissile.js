@@ -22,7 +22,7 @@ private var cam : Camera;
 
 function Start(){
 	line = this.GetComponent(LineRenderer);
-	cam = GameObject.FindWithTag("WeaponCamera").camera;
+	cam = GameObject.FindWithTag("WeaponCamera").GetComponent.<Camera>();
 	/*for(var i : int = 0; i < lockObjs.length; i ++){
 		lockObjs[i].transform.parent = null;
 	}*/
@@ -104,7 +104,7 @@ function LockOn(){
 		nextLockTime = Time.time + delayTime;
 		gscript.burstCount = targets;
 //		audio.priority = 255;
-		audio.Play();
+		GetComponent.<AudioSource>().Play();
 		return;
 	}
 	if(targets == 0){

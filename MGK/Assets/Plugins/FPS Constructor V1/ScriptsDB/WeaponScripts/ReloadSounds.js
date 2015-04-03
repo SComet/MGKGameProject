@@ -15,31 +15,31 @@ var sound5 : AudioClip;
 var sound6 : AudioClip;
 
 function play1(){
-	audio.clip = sound1;
-	audio.Play();
+	GetComponent.<AudioSource>().clip = sound1;
+	GetComponent.<AudioSource>().Play();
 }
 
 function play2(){
-	audio.clip = sound2;
-	audio.Play();
+	GetComponent.<AudioSource>().clip = sound2;
+	GetComponent.<AudioSource>().Play();
 }
 
 function play3(){
-	audio.clip = sound3;
-	audio.Play();
+	GetComponent.<AudioSource>().clip = sound3;
+	GetComponent.<AudioSource>().Play();
 }
 
 function play4(){
-	audio.clip = sound4;
-	audio.Play();
+	GetComponent.<AudioSource>().clip = sound4;
+	GetComponent.<AudioSource>().Play();
 }
 
 function play5(){
-	audio.clip = sound5;
-	audio.Play();
+	GetComponent.<AudioSource>().clip = sound5;
+	GetComponent.<AudioSource>().Play();
 }
 
 function play6(){
-	audio.clip = sound6;
-	audio.Play();
+	GetComponent.<AudioSource>().clip = sound6;
+	GetComponent.<AudioSource>().Play();
 }

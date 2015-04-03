@@ -53,6 +53,6 @@ function OnCollisionEnter(c : Collision){
 		}
 		GunScript.hitBox = false;
 		isActive = false;
-		audio.loop = false;
+		GetComponent.<AudioSource>().loop = false;
 	}
 }

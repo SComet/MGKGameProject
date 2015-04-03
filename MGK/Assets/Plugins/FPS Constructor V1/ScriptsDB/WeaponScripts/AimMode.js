@@ -150,13 +150,13 @@ function Start(){
 }
 
 function AspectCheck(){
-	if(cmra.camera.aspect == 1.6 && st1610 != null){
+	if(cmra.GetComponent.<Camera>().aspect == 1.6 && st1610 != null){
 		scopeTexture = st1610;
-	} else if(Mathf.Round(cmra.camera.aspect) == 2 && st169 != null){
+	} else if(Mathf.Round(cmra.GetComponent.<Camera>().aspect) == 2 && st169 != null){
 		scopeTexture = st169;
-	} else if(cmra.camera.aspect == 1.25 && st54 != null){
+	} else if(cmra.GetComponent.<Camera>().aspect == 1.25 && st54 != null){
 		scopeTexture = st54;
-	} else if(Mathf.Round(cmra.camera.aspect) == 1 && st43 != null){
+	} else if(Mathf.Round(cmra.GetComponent.<Camera>().aspect) == 1 && st43 != null){
 		scopeTexture = st43;
 	}
 }
@@ -200,13 +200,13 @@ function Update(){
 		}
 	}
 	//Reset Camera
-	if(!aiming && cmra.camera.fieldOfView != PlayerWeapons.fieldOfView){
+	if(!aiming && cmra.GetComponent.<Camera>().fieldOfView != PlayerWeapons.fieldOfView){
 		if(sightsZoom1 && !scoped){
-			cmra.camera.fieldOfView = Mathf.Lerp(cmra.camera.fieldOfView, PlayerWeapons.fieldOfView, Mathf.SmoothStep(0,1,1 - (aimStartTime-Time.time)/aimRate));
-			wcmra.camera.fieldOfView = Mathf.Lerp(wcmra.camera.fieldOfView, PlayerWeapons.fieldOfView, Mathf.SmoothStep(0,1,1 - (aimStartTime-Time.time)/aimRate));
+			cmra.GetComponent.<Camera>().fieldOfView = Mathf.Lerp(cmra.GetComponent.<Camera>().fieldOfView, PlayerWeapons.fieldOfView, Mathf.SmoothStep(0,1,1 - (aimStartTime-Time.time)/aimRate));
+			wcmra.GetComponent.<Camera>().fieldOfView = Mathf.Lerp(wcmra.GetComponent.<Camera>().fieldOfView, PlayerWeapons.fieldOfView, Mathf.SmoothStep(0,1,1 - (aimStartTime-Time.time)/aimRate));
 		} else {
-			cmra.camera.fieldOfView = PlayerWeapons.fieldOfView;
-			wcmra.camera.fieldOfView = PlayerWeapons.fieldOfView;
+			cmra.GetComponent.<Camera>().fieldOfView = PlayerWeapons.fieldOfView;
+			wcmra.GetComponent.<Camera>().fieldOfView = PlayerWeapons.fieldOfView;
 		}
 	}
 
@@ -240,15 +240,15 @@ function Update(){
 				if (g.gameObject.name != "Sparks")
 					g.enabled=false;
 			}
-			cmra.camera.fieldOfView = PlayerWeapons.fieldOfView/zoomFactor;
+			cmra.GetComponent.<Camera>().fieldOfView = PlayerWeapons.fieldOfView/zoomFactor;
 		}
 		
 		//Otherwise if sights zoom then zoom in camera
 		if (sightsZoom && selected && !zoomed && !scoped){
-			cmra.camera.fieldOfView = Mathf.Lerp(cmra.camera.fieldOfView, PlayerWeapons.fieldOfView/zoomFactor, Mathf.SmoothStep(0,1,1 - (aimStartTime-Time.time)/aimRate));
-			wcmra.camera.fieldOfView = Mathf.Lerp(wcmra.camera.fieldOfView, PlayerWeapons.fieldOfView/zoomFactor, Mathf.SmoothStep(0,1,1 - (aimStartTime-Time.time)/aimRate));
+			cmra.GetComponent.<Camera>().fieldOfView = Mathf.Lerp(cmra.GetComponent.<Camera>().fieldOfView, PlayerWeapons.fieldOfView/zoomFactor, Mathf.SmoothStep(0,1,1 - (aimStartTime-Time.time)/aimRate));
+			wcmra.GetComponent.<Camera>().fieldOfView = Mathf.Lerp(wcmra.GetComponent.<Camera>().fieldOfView, PlayerWeapons.fieldOfView/zoomFactor, Mathf.SmoothStep(0,1,1 - (aimStartTime-Time.time)/aimRate));
 			
-			if(cmra.camera.fieldOfView == PlayerWeapons.fieldOfView/zoomFactor){
+			if(cmra.GetComponent.<Camera>().fieldOfView == PlayerWeapons.fieldOfView/zoomFactor){
 				zoomed = true;
 			}
 		}

@@ -55,9 +55,9 @@ function ApplyFallDamage(d : float){
 	HitEffects(d);
 
 	if(health <= 0){
-		audio.clip = deathSound;
-		audio.volume = hitSoundVolume;
-		audio.Play();
+		GetComponent.<AudioSource>().clip = deathSound;
+		GetComponent.<AudioSource>().volume = hitSoundVolume;
+		GetComponent.<AudioSource>().Play();
 		Die();
 	}
 }
@@ -72,9 +72,9 @@ function ApplyDamage(d : float){
 	HitEffects(d);
 
 	if(health <= 0){
-		audio.clip = deathSound;
-		audio.volume = hitSoundVolume;
-		audio.Play();
+		GetComponent.<AudioSource>().clip = deathSound;
+		GetComponent.<AudioSource>().volume = hitSoundVolume;
+		GetComponent.<AudioSource>().Play();
 		Die();
 	}
 }
@@ -89,9 +89,9 @@ function ApplyDamage(Arr : Object[]){
 	HitEffects(tempFloat);
 
 	if(health <= 0){
-		audio.clip = deathSound;
-		audio.volume = hitSoundVolume;
-		audio.Play();
+		GetComponent.<AudioSource>().clip = deathSound;
+		GetComponent.<AudioSource>().volume = hitSoundVolume;
+		GetComponent.<AudioSource>().Play();
 		Die();
 	}
 }
@@ -131,9 +131,9 @@ function HitEffects (damage : float) {
 		var temp : int = Mathf.Round(Random.value*hitSounds.length);
 		if(temp == 0)
 			temp =1;
-		audio.clip = hitSounds[temp-1];
-		audio.volume = hitSoundVolume;
-		audio.Play();
+		GetComponent.<AudioSource>().clip = hitSounds[temp-1];
+		GetComponent.<AudioSource>().volume = hitSoundVolume;
+		GetComponent.<AudioSource>().Play();
 	}
 }
 

@@ -17,5 +17,5 @@ function Attack () {
 	target.SendMessageUpwards("ApplyDamage", sendArray, SendMessageOptions.DontRequireReceiver);
 	target.SendMessageUpwards("Direction", transform, SendMessageOptions.DontRequireReceiver);
 	nextAttackTime = Time.time + attackTime;
-	animation.Play();
+	GetComponent.<Animation>().Play();
 }

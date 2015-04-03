@@ -67,9 +67,9 @@ function Update () {
 	if(move && moves){
    	 // this reduces the amount of force that acts on the object if it is already
    	 // moving at speed.
-    	var forceMultiplier : float = Mathf.Clamp01((desiredSpeed - rigidbody.velocity.magnitude) / desiredSpeed);
+    	var forceMultiplier : float = Mathf.Clamp01((desiredSpeed - GetComponent.<Rigidbody>().velocity.magnitude) / desiredSpeed);
     	// now we actually perform the push
-    	rigidbody.AddForce(transform.forward * (forceMultiplier * Time.deltaTime * forceConstant));
+    	GetComponent.<Rigidbody>().AddForce(transform.forward * (forceMultiplier * Time.deltaTime * forceConstant));
     }
     
     if(Vector3.Distance(transform.position, target.position) < attackRange && sees)

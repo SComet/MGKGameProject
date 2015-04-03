@@ -13,8 +13,8 @@ function Die () {
 		t = Instantiate(drops,transform.position+Vector3(0,2,0), transform.rotation);
 		
 		dir = Random.insideUnitSphere*force;
-		t.rigidbody.AddForce(dir, ForceMode.Impulse);
-		t.rigidbody.AddTorque(dir, ForceMode.Impulse);
+		t.GetComponent.<Rigidbody>().AddForce(dir, ForceMode.Impulse);
+		t.GetComponent.<Rigidbody>().AddTorque(dir, ForceMode.Impulse);
 		i++;
 	}
 }

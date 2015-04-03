@@ -290,9 +290,9 @@ function Start ()
 
 // Make the rigid body not change rotation
 
-	if (rigidbody)
+	if (GetComponent.<Rigidbody>())
 
-	rigidbody.freezeRotation = true;
+	GetComponent.<Rigidbody>().freezeRotation = true;
 
 	originalRotation = transform.localRotation;
 

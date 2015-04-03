@@ -75,11 +75,11 @@ function Fire (penetration : int, damage : float, force : float, tracer : GameOb
 		var audioObj : GameObject = new GameObject("GunShot");
 	audioObj.transform.position = transform.position;
 	audioObj.transform.parent = transform;
-	audioObj.AddComponent(TimedObjectDestructorDB).timeOut = audio.clip.length + .1;
+	audioObj.AddComponent(TimedObjectDestructorDB).timeOut = GetComponent.<AudioSource>().clip.length + .1;
 	var aO : AudioSource = audioObj.AddComponent(AudioSource);
-	aO.clip = audio.clip;
-	aO.volume = audio.volume;
-	aO.pitch = audio.pitch;
+	aO.clip = GetComponent.<AudioSource>().clip;
+	aO.volume = GetComponent.<AudioSource>().volume;
+	aO.pitch = GetComponent.<AudioSource>().pitch;
 	aO.Play();
 	aO.loop = false;
 	aO.rolloffMode = AudioRolloffMode.Linear;

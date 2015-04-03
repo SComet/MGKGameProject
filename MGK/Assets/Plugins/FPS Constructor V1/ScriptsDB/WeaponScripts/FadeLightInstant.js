@@ -17,7 +17,7 @@ private var color : Color;
 private var active1 : boolean = false;
 	
 function Start(){
-	if(light == null){
+	if(GetComponent.<Light>() == null){
 		Destroy(this);
 		return;
 	}
@@ -31,13 +31,13 @@ function Update(){
 	}
 	else if(intensity > 0.0){
 		intensity -= fadeSpeed * Time.deltaTime;
-		light.intensity = intensity;
+		GetComponent.<Light>().intensity = intensity;
 	}
 }
 
 function Activate(){
-	light.intensity = startIntensity;
-	intensity = light.intensity;
+	GetComponent.<Light>().intensity = startIntensity;
+	intensity = GetComponent.<Light>().intensity;
 	active1 = true;
 	if(fadeTime > 0.0)
 	{

@@ -18,17 +18,17 @@ function Update () {
 	if(Random.value <lockTime/lockMax){
 		line.enabled = true;
 		desigLight.enabled = true;
-		desigLight.transform.audio.volume = lockTime/lockMax;
-		desigLight.transform.audio.pitch = lockTime/lockMax*3;
-		if(!desigLight.transform.audio.isPlaying){
-			desigLight.transform.audio.Play();
+		desigLight.transform.GetComponent.<AudioSource>().volume = lockTime/lockMax;
+		desigLight.transform.GetComponent.<AudioSource>().pitch = lockTime/lockMax*3;
+		if(!desigLight.transform.GetComponent.<AudioSource>().isPlaying){
+			desigLight.transform.GetComponent.<AudioSource>().Play();
 		}
 	} else {
 		line.enabled = false;
 		desigLight.enabled = false;
 	}
 	if(lockTime <= 0)
-		desigLight.transform.audio.Stop();
+		desigLight.transform.GetComponent.<AudioSource>().Stop();
 
 	if(gscript.chargeLevel <= 0){
 		lockTime = Mathf.Clamp(lockTime- Time.deltaTime, 0, lockMax);
