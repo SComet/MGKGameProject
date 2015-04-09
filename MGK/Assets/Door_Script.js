@@ -1,6 +1,6 @@
 var smooth = 2.0;
 var DoorOpenAngle = 90.0;
-var interactKey="f";
+
 
 private var open : boolean;
 private var enter : boolean;
@@ -23,14 +23,14 @@ function Update (){
 		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, defaultRot, Time.deltaTime * smooth);
 	}
 
-	if(Input.GetKeyDown(interactKey) && enter){
+	if(Input.GetButtonDown("Interact") && enter){
 		open = !open;
 	}
 }
 
 function OnGUI(){
 	if(enter){
-		GUI.Label(new Rect(Screen.width/2 - 75, Screen.height - 100, 150, 30), "Press '"+interactKey+"' to open the door");
+		GUI.Label(new Rect(Screen.width/2 - 75, Screen.height - 100, 150, 30), "Press e to open the door");
 	}
 }
 

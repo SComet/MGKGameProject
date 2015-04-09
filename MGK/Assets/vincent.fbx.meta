@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: eea0c8b3fbda6e94da505abc5f5ee822
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 18
   fileIDToRecycleName:
     100000: Head
     100002: HeadTop_End
@@ -220,7 +220,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle_Vincent
       takeName: Take 001
-      firstFrame: 41
+      firstFrame: 42
       lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
@@ -336,11 +336,13 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 0
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -363,3 +365,5 @@ ModelImporter:
   animationType: 1
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
