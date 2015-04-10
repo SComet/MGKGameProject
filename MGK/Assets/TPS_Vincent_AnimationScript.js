@@ -9,7 +9,8 @@ public var jumpPoseAnimation : AnimationClip;
 public var walkSpeed : float = 0.75;
 public var runSpeed : float = 1.0;
 public var jumpSpeed : float = 1.15;
-public var landSpeed : float = 1.0;
+public var breathingSpeed : float = .75;
+
 
 public var canJump=true;
 private var _animation : Animation;
@@ -55,13 +56,17 @@ public var jumpPoseAnimation : AnimationClip;
 		_animation = null;
 		Debug.Log("No jump animation found and the character has canJump enabled. Turning off animations.");
 	}
-		
+	if(!aimAnimation) {
+		_animation = null;
+		Debug.Log("No aim animation found. Turning off animations.");
+	}
+	
 	// Puts the aiming animation on a different level and set it up for mixing with other animations
 	var mixTransform : Transform = transform.Find("Hips/Spine");
 	_animation[aimAnimation.name].AddMixingTransform(mixTransform);	
 	_animation[aimAnimation.name].layer = 10;
-	_animation[aimAnimation.name].blendMode=AnimationBlendMode.Additive;
-	//_animation[aimAnimation.name].enabled=true;
+	_animation[aimAnimation.name].blendMode=AnimationBlendMode.Blend;
+	_animation[aimAnimation.name].enabled=true;
 	_animation[aimAnimation.name].weight= 1;
 	
 }
@@ -71,6 +76,7 @@ function Update() {
 	// ANIMATION sector
 	switch(_vincentState){
 		case CharacterStates.Idle:
+			_animation[idleAnimation.name].speed=breathingSpeed;
 			_animation.CrossFade(idleAnimation.name); 
 			break;
 		case CharacterStates.Walking: 
@@ -84,12 +90,11 @@ function Update() {
 	}
 	
 	if(isVincentAiming){
-		_animation.Play(aimAnimation.name);
-		print(_animation.IsPlaying(aimAnimation.name));	
+		_animation[aimAnimation.name].speed=breathingSpeed;
+		_animation.CrossFade(aimAnimation.name);
 	}
 	else{
 		_animation.Stop(aimAnimation.name);
-		print("Not Aiming");
 	}
 
 	//change Vincent's state sector

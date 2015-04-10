@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Door_Script.js" />
-     <Compile Include="Assets\TPS_Vincent.js" />
      <Compile Include="Assets\TPS_Vincent_AnimationScript.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
