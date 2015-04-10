@@ -3,6 +3,7 @@
 public var idleAnimation : AnimationClip;
 public var walkAnimation : AnimationClip;
 public var runAnimation : AnimationClip;
+public var aimAnimation : AnimationClip;
 public var jumpPoseAnimation : AnimationClip;
 
 public var walkSpeed : float = 0.75;
@@ -21,6 +22,7 @@ enum CharacterStates{
 	Jumping = 3,
 }
 
+private var isVincentAiming=false;
 private var _vincentState : CharacterStates;
 
 function Awake ()
@@ -53,7 +55,15 @@ public var jumpPoseAnimation : AnimationClip;
 		_animation = null;
 		Debug.Log("No jump animation found and the character has canJump enabled. Turning off animations.");
 	}
-			
+		
+	// Puts the aiming animation on a different level and set it up for mixing with other animations
+	var mixTransform : Transform = transform.Find("Hips/Spine");
+	_animation[aimAnimation.name].AddMixingTransform(mixTransform);	
+	_animation[aimAnimation.name].layer = 10;
+	_animation[aimAnimation.name].blendMode=AnimationBlendMode.Additive;
+	//_animation[aimAnimation.name].enabled=true;
+	_animation[aimAnimation.name].weight= 1;
+	
 }
 
 function Update() {
@@ -73,21 +83,32 @@ function Update() {
 			break;
 	}
 	
-	//change state
-	if(Input.anyKey){
-		//running
-		if(Input.GetButtonDown("Sprint")&&(Input.GetButtonDown("Vertical")||Input.GetButtonDown("Horizontal"))) {
-			_vincentState=CharacterStates.Running;
-		}
-		//walking
-		else if(Input.GetButtonDown("Vertical")||Input.GetButtonDown("Horizontal")) {
-			_vincentState=CharacterStates.Walking;
-		}
+	if(isVincentAiming){
+		_animation.Play(aimAnimation.name);
+		print(_animation.IsPlaying(aimAnimation.name));	
+	}
+	else{
+		_animation.Stop(aimAnimation.name);
+		print("Not Aiming");
+	}
+
+	//change Vincent's state sector
+	//running
+	if(Input.GetButtonDown("Sprint")&&(Input.GetButtonDown("Vertical")||Input.GetButtonDown("Horizontal"))) {
+		_vincentState=CharacterStates.Running;
+	}
+	//walking
+	else if(!Input.GetButtonDown("Sprint")&&(Input.GetButtonDown("Vertical")||Input.GetButtonDown("Horizontal"))) {
+		_vincentState=CharacterStates.Walking;
 	}
 	//No keys pressed => character doing nothing => play idle animation	
-	else{
+	else if(!Input.anyKey){
 		_vincentState=CharacterStates.Idle;
 	}
 	
-
+	//change aiming state. Disregards other animations.
+	if(Input.GetButtonDown("Aim"))
+		isVincentAiming=true;
+	if(Input.GetButtonUp("Aim"))
+		isVincentAiming=false;
 }
