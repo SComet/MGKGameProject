@@ -1,9 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TPS_Vincent_AnimationScript.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\FPS Constructor V1\ScriptsDB\WeaponScripts\GunScript.js">
     <Files>
-      <File FileName="Assets\TPS_Vincent_AnimationScript.js" Line="105" Column="9" />
-      <File FileName="Assets\TPS_Vincent.js" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\FPS Constructor V1\ScriptsDB\WeaponScripts\JumpCrouchEffects.js" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\DB Upgrades_Store\Store\Scripts\DBStoreGUI.js" Line="236" Column="52" />
+      <File FileName="Assets\TPS_Vincent_AnimationScript.js" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\Editor\WizardEditor.js" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\FPS Constructor V1\ScriptsDB\WeaponScripts\GunScript.js" Line="501" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

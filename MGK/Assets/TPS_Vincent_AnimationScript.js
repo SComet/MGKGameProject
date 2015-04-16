@@ -99,15 +99,15 @@ function Update() {
 
 	//change Vincent's state sector
 	//running
-	if(Input.GetButtonDown("Sprint")&&(Input.GetButtonDown("Vertical")||Input.GetButtonDown("Horizontal"))) {
+	if(Input.GetButton("Sprint")&&(Input.GetButton("Vertical")||Input.GetButton("Horizontal"))) {
 		_vincentState=CharacterStates.Running;
 	}
 	//walking
-	else if(!Input.GetButtonDown("Sprint")&&(Input.GetButtonDown("Vertical")||Input.GetButtonDown("Horizontal"))) {
+	else if(!Input.GetButton("Sprint")&&(Input.GetButton("Vertical")||Input.GetButton("Horizontal"))) {
 		_vincentState=CharacterStates.Walking;
 	}
 	//No keys pressed => character doing nothing => play idle animation	
-	else if(!Input.anyKey){
+	else{
 		_vincentState=CharacterStates.Idle;
 	}
 	
