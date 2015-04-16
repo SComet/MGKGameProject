@@ -192,9 +192,6 @@
      <Compile Include="Assets\Plugins\FPS Constructor V1\ScriptsDB\WeaponScripts\WeaponInfo.js" />
      <Compile Include="Assets\Plugins\FPS Constructor V1\ScriptsDB\WeaponScripts\WeaponLocking.js" />
      <Compile Include="Assets\Plugins\FPS Constructor V1\ScriptsDB\copyright.txt.js" />
-     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" />
-     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" />
-     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\PlatformInputController.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

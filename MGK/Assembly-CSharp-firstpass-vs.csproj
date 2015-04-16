@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\Plugins\FPS Constructor V1\Demo Assets\Weapons\Plasma Beam\LightningBolt.cs" />
      <Compile Include="Assets\Plugins\FPS Constructor V1\Demo Assets\Weapons\Plasma Beam\Perlin.cs" />
-     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
      <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />

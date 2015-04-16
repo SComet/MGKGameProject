@@ -41,6 +41,9 @@ static function SetPause(pause : boolean){
 		PlayerWeapons.playerActive = false;
 		//Screen.lockCursor = false;
 		Time.timeScale = 0;
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+		PlayerWeapons.playerActive = false;
 		player.BroadcastMessage("Freeze", SendMessageOptions.DontRequireReceiver);
 
 	}
@@ -48,7 +51,8 @@ static function SetPause(pause : boolean){
 	{
 		unPaused = true;
 		Time.timeScale = 1;
-		Screen.lockCursor = true;
+		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = false;
 		PlayerWeapons.playerActive = true;
 		player.BroadcastMessage("UnFreeze", SendMessageOptions.DontRequireReceiver);
 	}
@@ -56,12 +60,14 @@ static function SetPause(pause : boolean){
 
 static function HardUnlock() {
 	canLock = false;
-	Screen.lockCursor = false;
+	Cursor.lockState = CursorLockMode.None;
+	Cursor.visible = true;
 }
 
 static function HardLock() {
 	canLock = false;
-	Screen.lockCursor = true;
+	Cursor.lockState = CursorLockMode.Confined;
+	Cursor.visible = false;
 }
 
 private var wasLocked = false;
@@ -70,7 +76,7 @@ function Update(){
 	if(!canLock)
 		return;
 		
-	if (Input.GetMouseButton(0) && Screen.lockCursor == false){
+	if (Input.GetMouseButton(0) && Cursor.visible == true){
 		SetPause(false);
 	}
 		
@@ -82,12 +88,12 @@ function Update(){
     // eg. because the user pressed escape
     // or because he switched to another application
     // or because some script set Screen.lockCursor = false;
-    if(!Screen.lockCursor && wasLocked){
+    if(Cursor.visible && wasLocked){
         wasLocked = false;
         SetPause(true);
     }
     // Did we gain cursor locking?
-    else if(Screen.lockCursor && !wasLocked){
+    else if(!Cursor.visible && !wasLocked){
         wasLocked = true;
         SetPause(false);
     }
