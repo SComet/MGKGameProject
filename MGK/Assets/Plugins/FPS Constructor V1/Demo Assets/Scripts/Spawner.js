@@ -5,7 +5,7 @@ var waves : Wave[];
 var spawners : Transform[];
 var spawnDelay : float = 3;
 
-var spawnTime : float = .2;
+var spawnTime : float = 5;
 private var spawning : boolean = false;
 private var nextSpawnTimme : float;
 

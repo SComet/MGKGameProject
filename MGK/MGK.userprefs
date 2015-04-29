@@ -1,8 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\FPS Constructor V1\ScriptsDB\Core\FPSInputControllerDB.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\FPS Constructor V1\Demo Assets\Scripts\Spawner.js">
     <Files>
+      <File FileName="MGK.sln" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\FPS Constructor V1\Demo Assets\Scripts\CubeSet.js" Line="1" Column="1" />
       <File FileName="Assets\Plugins\FPS Constructor V1\ScriptsDB\Core\FPSInputControllerDB.js" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\FPS Constructor V1\ScriptsDB\ProjectileScripts\GrenadeCharged.js" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\FPS Constructor V1\ScriptsDB\ProjectileScripts\Grenade.js" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\FPS Constructor V1\Demo Assets\Scripts\Spawner.js" Line="35" Column="16" />
+      <File FileName="Assets\Plugins\FPS Constructor V1\Demo Assets\Scripts\Wave.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
